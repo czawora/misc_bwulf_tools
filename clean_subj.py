@@ -115,7 +115,7 @@ else:
 
 		if clean_subj is True:
 
-			paths = subj_path
+			paths = glob.glob(subj_path + "/*")
 
 		else:
 
