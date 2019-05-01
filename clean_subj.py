@@ -92,7 +92,11 @@ else:
 			print("(copy) " + str(copied) + " of " + str(len(copy_pairs)) + " " + cp[0] + " --> " + cp[1])
 
 			if copy_safety_off is True:
-				shutil.copytree(cp[0], cp[1])
+
+				if os.path.isdir(cp[0]):
+					shutil.copytree(cp[0], cp[1])
+				else:
+					shutil.copyfile(cp[0], cp[1])
 
 			copied += 1
 
