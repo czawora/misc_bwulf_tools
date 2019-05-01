@@ -37,7 +37,7 @@ if os.path.isdir(dest_path) is False:
 	print(dest_path + " is not a valid path")
 	exit(1)
 
-if copy_lfp is False and copy_sort is False and clean is False:
+if copy_lfp is False and copy_sort is False and clean_subj is False and clean_sort is False and clean_lfp is False:
 
 	print("no action chosen")
 
