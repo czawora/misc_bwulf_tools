@@ -12,10 +12,10 @@ parser.add_argument('dest_path')
 parser.add_argument('--clean_subj', action='store_true')
 parser.add_argument('--clean_lfp', action='store_true')
 parser.add_argument('--clean_sort', action='store_true')
-parser.add_argument('--clean_safety', action='store_true')
+parser.add_argument('--clean_safety_off', action='store_true')
 parser.add_argument('--copy_lfp', action='store_true')
 parser.add_argument('--copy_sort', action='store_true')
-parser.add_argument('--copy_safety', action='store_true')
+parser.add_argument('--copy_safety_off', action='store_true')
 
 args = parser.parse_args()
 
@@ -24,10 +24,10 @@ dest_path = args.dest_path
 clean_subj = args.clean_subj
 clean_lfp = args.clean_lfp
 clean_sort = args.clean_sort
-clean_safety = args.clean_safety
+clean_safety_off = args.clean_safety_off
 copy_lfp = args.copy_lfp
 copy_sort = args.copy_sort
-copy_safety = args.copy_safety
+copy_safety_off = args.copy_safety_off
 
 if os.path.isdir(subj_path) is False:
 	print(subj_path + " is not a valid path")
@@ -51,7 +51,7 @@ else:
 
 		copy_pairs = []
 
-		if copy_safety is True:
+		if copy_safety_off is False:
 			print("(safety)", end="")
 		print("(copy) searching " + subj_path + " ... ")
 
@@ -84,14 +84,14 @@ else:
 					print(f)
 					copy_pairs.append((f, dest_sess_path + "/raw"))
 
-		if copy_safety is True:
+		if copy_safety_off is False:
 			print("(safety)", end="")
 		print("(copy) copying " + str(len(copy_pairs)) + " items to " + dest_path  + " ... ")
 
 		copied = 0
 		for cp in copy_pairs:
 
-			if copy_safety is True:
+			if copy_safety_off is False:
 				print("(safety)", end="")
 			print("(copy) " + str(copied) + " of " + str(len(copy_pairs)) + " " + cp[0] + " --> " + cp[1])
 
@@ -104,7 +104,7 @@ else:
 
 	if clean_subj is True or clean_sort is True or clean_lfp is True:
 
-		if clean_safety is True:
+		if clean_safety_off is False:
 			print("(safety)", end="")
 		print("(delete) searching " + subj_path + " ... ")
 
@@ -124,24 +124,24 @@ else:
 
 				paths += glob.glob(subj_path + "/*/spike")
 
-		if clean_safety is True:
+		if clean_safety_off is False:
 			print("(safety)", end="")
 		print("Found " + str(len(paths)) + " directories to delete ")
 
-		if clean_safety is True:
+		if clean_safety_off is False:
 			print("(safety)", end="")
 		resp = input("Are you sure you want to delete these items ? y/[n]")
 
 		if resp == "y":
 
-			if clean_safety is True:
+			if clean_safety_off is False:
 				print("(safety)", end="")
 			print("(delete) deleting " + " ... ")
 
 			deleted = 0
 			for p in paths:
 
-				if clean_safety is True:
+				if clean_safety_off is False:
 					print("(safety)", end="")
 				print("(delete) " + str(deleted) + " of " + str(len(paths)) + ": " + p)
 
