@@ -98,6 +98,7 @@ else:
 						shutil.rmtree(cp[1])
 					shutil.copytree(cp[0], cp[1])
 				else:
+					os.makedirs(os.path.dirname(cp[1]), exist_ok=True)
 					shutil.copyfile(cp[0], cp[1])
 
 			copied += 1
