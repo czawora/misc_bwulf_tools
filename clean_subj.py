@@ -95,7 +95,9 @@ else:
 				print("(safety)", end="")
 			print("(copy) " + str(copied) + " of " + str(len(copy_pairs)) + " " + cp[0] + " --> " + cp[1])
 
-			shutil.copytree(cp[0], cp[1])
+			if copy_safety_off is True:
+				shutil.copytree(cp[0], cp[1])
+
 			copied += 1
 
 	###########################################################
@@ -145,5 +147,7 @@ else:
 					print("(safety)", end="")
 				print("(delete) " + str(deleted) + " of " + str(len(paths)) + ": " + p)
 
-				shutil.rmtree(p)
+				if clean_safety_off is True:
+					shutil.rmtree(p)
+
 				deleted += 1
