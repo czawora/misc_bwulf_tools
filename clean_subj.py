@@ -63,22 +63,22 @@ else:
 
 				for f in glob.glob(sess + "/lfp/outputs/microDev*") + glob.glob(sess + "/lfp/outputs/variance.csv"):
 
-					copy_pairs.append((f, dest_sess_path + "/cleaning"))
+					copy_pairs.append((f, dest_sess_path + "/cleaning/" + f.split("/")[-1]))
 
 				for f in glob.glob(sess + "/lfp/outputs/*processed.mat") + glob.glob(sess + "/lfp/outputs/*noreref.mat"):
 
-					copy_pairs.append((f, dest_sess_path + "/raw"))
+					copy_pairs.append((f, dest_sess_path + "/raw/" + f.split("/")[-1]))
 
 
 			if copy_sort is True:
 
 				for f in glob.glob(sess + "/spike/outputs/*sortSummary.csv") + glob.glob(sess + "/spike/outputs/*spikeWaveform.mat") + glob.glob(sess + "/spike/outputs/*sortFigs"):
 
-					copy_pairs.append((f, dest_sess_path + "/sorting"))
+					copy_pairs.append((f, dest_sess_path + "/sorting/" + f.split("/")[-1]))
 
 				for f in glob.glob(sess + "/spike/outputs/*spikeInfo.mat"):
 
-					copy_pairs.append((f, dest_sess_path + "/raw"))
+					copy_pairs.append((f, dest_sess_path + "/raw/" + f.split("/")[-1]))
 
 		if copy_safety_off is False:
 			print("(safety)", end="")
