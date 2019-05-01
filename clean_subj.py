@@ -57,7 +57,7 @@ else:
 
 		for sess in glob.glob(subj_path + "/*"):
 
-			dest_sess_path = dest_path + "/" + sess
+			dest_sess_path = dest_path + "/" + sess.split("/")[-1]
 
 			if copy_lfp is True:
 
