@@ -74,12 +74,10 @@ else:
 
 				for f in glob.glob(sess + "/spike/outputs/*sortSummary.csv") + glob.glob(sess + "/spike/outputs/*spikeWaveform.mat") + glob.glob(sess + "/spike/outputs/*sortFigs"):
 
-					print(f)
 					copy_pairs.append((f, dest_sess_path + "/sorting"))
 
 				for f in glob.glob(sess + "/spike/outputs/*spikeInfo.mat"):
 
-					print(f)
 					copy_pairs.append((f, dest_sess_path + "/raw"))
 
 		if copy_safety_off is False:
