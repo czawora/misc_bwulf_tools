@@ -63,12 +63,10 @@ else:
 
 				for f in glob.glob(sess + "/lfp/outputs/microDev*") + glob.glob(sess + "/lfp/outputs/variance.csv"):
 
-					print(f)
 					copy_pairs.append((f, dest_sess_path + "/cleaning"))
 
 				for f in glob.glob(sess + "/lfp/outputs/*processed.mat") + glob.glob(sess + "/lfp/outputs/*noreref.mat"):
 
-					print(f)
 					copy_pairs.append((f, dest_sess_path + "/raw"))
 
 
