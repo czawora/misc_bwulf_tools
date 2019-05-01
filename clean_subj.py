@@ -95,7 +95,7 @@ else:
 
 				if os.path.isdir(cp[0]):
 					if os.path.exists(cp[1]):
-        				shutil.rmtree(cp[1])
+						shutil.rmtree(cp[1])
 					shutil.copytree(cp[0], cp[1])
 				else:
 					shutil.copyfile(cp[0], cp[1])
