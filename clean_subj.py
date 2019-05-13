@@ -33,7 +33,7 @@ if os.path.isdir(subj_path) is False:
 	print(subj_path + " is not a valid path")
 	exit(1)
 
-if os.path.isdir(dest_path) is False:
+if dest_path != "" and os.path.isdir(dest_path) is False:
 	print(dest_path + " is not a valid path")
 	exit(1)
 
