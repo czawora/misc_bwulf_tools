@@ -44,11 +44,11 @@ else:
 	###########################################################
 	# copy
 
-	if os.path.isdir(dest_path) is False:
-		print(dest_path + " is not a valid path")
-		exit(1)
-
 	if copy_lfp is True or copy_sort is True:
+
+		if os.path.isdir(dest_path) is False:
+			print(dest_path + " is not a valid path")
+			exit(1)
 
 		copy_pairs = []
 
