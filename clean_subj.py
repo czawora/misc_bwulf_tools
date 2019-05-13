@@ -33,9 +33,6 @@ if os.path.isdir(subj_path) is False:
 	print(subj_path + " is not a valid path")
 	exit(1)
 
-if dest_path != "" and os.path.isdir(dest_path) is False:
-	print(dest_path + " is not a valid path")
-	exit(1)
 
 if copy_lfp is False and copy_sort is False and clean_subj is False and clean_sort is False and clean_lfp is False:
 
@@ -46,6 +43,10 @@ else:
 	###########################################################
 	###########################################################
 	# copy
+
+	if os.path.isdir(dest_path) is False:
+		print(dest_path + " is not a valid path")
+		exit(1)
 
 	if copy_lfp is True or copy_sort is True:
 
