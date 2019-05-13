@@ -8,7 +8,7 @@ import shutil
 parser = argparse.ArgumentParser(description='')
 
 parser.add_argument('subj_path')
-parser.add_argument('dest_path')
+parser.add_argument('--dest_path')
 parser.add_argument('--clean_subj', action='store_true')
 parser.add_argument('--clean_lfp', action='store_true')
 parser.add_argument('--clean_sort', action='store_true')
